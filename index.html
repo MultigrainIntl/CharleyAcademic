@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charley Academic — Tutor Launchpad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --bg: #F6F4EF;
+  --surface: #FFFFFF;
+  --surface2: #F0EDE6;
+  --border: #DDD9D0;
+  --border-hover: #B8C4A8;
+  --text: #1C1A16;
+  --muted: #6B6760;
+  --hint: #A8A49E;
+  --green: #2A5C3F;
+  --green-mid: #3D7A57;
+  --green-light: #EAF0EB;
+  --green-text: #1A3D28;
+  --gold: #8B6914;
+  --gold-light: #FBF5E6;
+  --chip-on-bg: #EAF0EB;
+  --chip-on-border: #2A5C3F;
+  --chip-on-text: #1A3D28;
+  --warn: #8B4513;
+  --warn-bg: #FDF3EC;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--green);
+  padding: 3.5rem 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: 'CA';
+  position: absolute;
+  right: -20px;
+  top: -30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 220px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1rem;
+}
+
+.hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-logo span {
+  color: rgba(255,255,255,0.45);
+  font-weight: 400;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.hbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+
+.part-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.part-tab {
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  border-bottom: 2px solid transparent;
+  cursor: default;
+  letter-spacing: 0.02em;
+}
+
+.part-tab.active {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.7);
+}
+
+.part-tab.done {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── PROGRESS ── */
+.prog-bar-wrap {
+  background: var(--green);
+  padding: 0 2rem 1.75rem;
+}
+
+.prog-bar-inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prog-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 7px;
+  padding-top: 1rem;
+}
+
+.prog-track {
+  height: 2px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+}
+
+.prog-fill {
+  height: 2px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.35s ease;
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.part-header {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--green);
+}
+
+.part-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.part-header p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 2.25rem 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 10px;
+  transition: border-color 0.15s;
+}
+
+.q-card.answered { border-color: #B8D4BF; }
+
+.q-num {
+  font-size: 11px;
+  color: var(--hint);
+  letter-spacing: 0.04em;
+  margin-bottom: 5px;
+}
+
+.q-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 13px;
+}
+
+.q-hint {
+  font-size: 12px;
+  color: var(--hint);
+  margin-top: 9px;
+  line-height: 1.55;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.1s;
+  user-select: none;
+}
+
+.chip:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.chip.on {
+  background: var(--chip-on-bg);
+  border-color: var(--chip-on-border);
+  color: var(--chip-on-text);
+  font-weight: 500;
+}
+
+input[type=text], textarea, select {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  line-height: 1.6;
+}
+
+input[type=text]:focus, textarea:focus, select:focus {
+  border-color: var(--green);
+}
+
+input[type=text]::placeholder, textarea::placeholder {
+  color: var(--hint);
+}
+
+textarea { min-height: 85px; resize: vertical; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* ── DIVIDER ── */
+.part-divider {
+  margin: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.part-divider-line { flex: 1; height: 1px; background: var(--border); }
+
+.part-divider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* ── SUBMIT ── */
+.submit-card {
+  margin-top: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.submit-card-top {
+  background: var(--green-light);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.submit-card-top h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--green-text);
+  margin-bottom: 6px;
+}
+
+.submit-card-top p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.deliverables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 1.25rem;
+}
+
+.deliverable {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+
+.deliverable .d-icon {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.deliverable .d-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.deliverable .d-sub {
+  font-size: 12px;
+  color: var(--hint);
+  line-height: 1.5;
+}
+
+.submit-btn-row {
+  padding: 1.25rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 13px 36px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.submit-btn:hover { background: #1e4430; }
+.submit-btn:active { transform: scale(0.98); }
+
+.warn-msg {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--warn);
+  background: var(--warn-bg);
+  border: 1px solid #F5CBA0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 1rem;
+}
+
+.result-box {
+  display: none;
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.result-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.result-box textarea {
+  min-height: 130px;
+  font-size: 13px;
+  background: var(--surface);
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.copy-btn:hover { background: var(--bg); }
+.copy-btn.copied { color: var(--green); border-color: var(--green); }
+
+.next-steps {
+  display: none;
+  margin: 1rem 1.25rem 1.25rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--green-light);
+  border-radius: var(--radius);
+}
+
+.next-steps p {
+  font-size: 13px;
+  color: var(--green-text);
+  line-height: 1.75;
+}
+
+.next-steps strong { font-weight: 500; }
+
+.next-steps ol {
+  margin-top: 8px;
+  padding-left: 1.25rem;
+}
+
+.next-steps ol li {
+  font-size: 13px;
+  color: var(--green-text);
+  line-height: 1.75;
+  margin-bottom: 3px;
+}
+
+@media (max-width: 580px) {
+  .hero { padding: 2.5rem 1.25rem 0; }
+  .main { padding: 1.5rem 1rem 4rem; }
+  .two-col { grid-template-columns: 1fr; }
+  .part-tab { padding: 10px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Tutor launchpad — confidential</div>
+    <div class="hero-logo">Charley<span>Academic</span></div>
+    <p class="hero-sub">Welcome to CharleyAcademic.com — your launchpad to a tutoring practice that earns top dollar, on your schedule, with the right students, anywhere in the world. Fill this out once and get your complete launch kit.</p>
+    <div class="hero-badges">
+      <span class="hbadge">✓ No teaching certificate required</span>
+      <span class="hbadge">✓ About 8 minutes</span>
+      <span class="hbadge">✓ Built for NJ-based independent tutors</span>
+      <span class="hbadge">✓ Scales to an agency</span>
+    </div>
+    <div class="part-tabs">
+      <div class="part-tab active" id="tab1">Part 1 — Strategy &amp; goals</div>
+      <div class="part-tab" id="tab2">Part 2 — Your profile &amp; background</div>
+    </div>
+  </div>
+</div>
+
+<div class="prog-bar-wrap">
+  <div class="prog-bar-inner">
+    <div class="prog-meta">
+      <span id="prog-label">0 of 22 answered</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ══ PART 1 ══ -->
+  <div class="part-header">
+    <h2>Part 1 — Strategy &amp; goals</h2>
+    <p>Tell us about your availability, subjects, income targets, and what kind of students you want to work with. This shapes which platforms and markets we recommend.</p>
+  </div>
+
+  <div class="section-label">Availability</div>
+
+  <div class="q-card" id="qc-hours">
+    <div class="q-num">Question 1</div>
+    <div class="q-text">How many hours per week can you realistically dedicate to tutoring?</div>
+    <div class="chip-group" data-q="hours">
+      <div class="chip" data-v="under-10">Under 10 hrs/week</div>
+      <div class="chip" data-v="10-20">10–20 hrs/week</div>
+      <div class="chip" data-v="20-30">20–30 hrs/week</div>
+      <div class="chip" data-v="30+">30+ hrs (full-time)</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-slots">
+    <div class="q-num">Question 2 — select all that apply</div>
+    <div class="q-text">Which time slots are you most available?</div>
+    <div class="chip-group" data-q="slots" data-multi="1">
+      <div class="chip" data-v="morning">Mornings (6am–noon ET)</div>
+      <div class="chip" data-v="afternoon">Afternoons (noon–5pm ET)</div>
+      <div class="chip" data-v="evening">Evenings (5pm–10pm ET)</div>
+      <div class="chip" data-v="weekend">Weekends</div>
+      <div class="chip" data-v="flexible">Fully flexible</div>
+    </div>
+    <div class="q-hint">Tip: Evenings ET overlap with Gulf and Southeast Asia mornings — the highest-paying international window.</div>
+  </div>
+
+  <div class="q-card" id="qc-modality">
+    <div class="q-num">Question 3</div>
+    <div class="q-text">Online only, or open to in-person students in NJ/NY too?</div>
+    <div class="chip-group" data-q="modality">
+      <div class="chip" data-v="online-only">Online only</div>
+      <div class="chip" data-v="local-too">Open to in-person in NJ/NY as well</div>
+      <div class="chip" data-v="local-pref">Prefer in-person, open to online</div>
+    </div>
+  </div>
+
+  <div class="section-label">Subjects & expertise</div>
+
+  <div class="q-card" id="qc-subjects">
+    <div class="q-num">Question 4 — select all that apply</div>
+    <div class="q-text">Which subjects are you strongest in and most confident teaching?</div>
+    <div class="chip-group" data-q="subjects" data-multi="1">
+      <div class="chip" data-v="chem-ap">AP Chemistry</div>
+      <div class="chip" data-v="chem-ib">IB Chemistry (HL/SL)</div>
+      <div class="chip" data-v="chem-uni">University-level Chemistry</div>
+      <div class="chip" data-v="chem-general">General / high school Chem</div>
+      <div class="chip" data-v="math-calc">Calculus / Pre-Calc</div>
+      <div class="chip" data-v="math-ap">AP / IB Math</div>
+      <div class="chip" data-v="math-uni">University Math</div>
+      <div class="chip" data-v="math-general">General / high school Math</div>
+      <div class="chip" data-v="eng-writing">English Writing / Essays</div>
+      <div class="chip" data-v="eng-lit">English Literature</div>
+      <div class="chip" data-v="eng-esl">ESL / English for non-native speakers</div>
+      <div class="chip" data-v="test-prep">Test prep (SAT / ACT / GRE / GMAT)</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-levels">
+    <div class="q-num">Question 5 — select all that apply</div>
+    <div class="q-text">What student levels do you enjoy teaching most?</div>
+    <div class="chip-group" data-q="levels" data-multi="1">
+      <div class="chip" data-v="middle">Middle school (grades 6–8)</div>
+      <div class="chip" data-v="high">High school (grades 9–12)</div>
+      <div class="chip" data-v="undergrad">Undergraduate / college</div>
+      <div class="chip" data-v="adult">Adult learners / professionals</div>
+    </div>
+  </div>
+
+  <div class="section-label">Income & pricing</div>
+
+  <div class="q-card" id="qc-income">
+    <div class="q-num">Question 6</div>
+    <div class="q-text">What is your monthly income goal from tutoring?</div>
+    <div class="chip-group" data-q="income">
+      <div class="chip" data-v="1-2k">$1,000–$2,000 (side income)</div>
+      <div class="chip" data-v="2-4k">$2,000–$4,000 (part-time living)</div>
+      <div class="chip" data-v="4-7k">$4,000–$7,000 (full-time replacement)</div>
+      <div class="chip" data-v="7k+">$7,000+ (premium scale)</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-rate">
+    <div class="q-num">Question 7</div>
+    <div class="q-text">What hourly rate are you currently charging — or targeting?</div>
+    <div class="chip-group" data-q="rate">
+      <div class="chip" data-v="under-50">Under $50/hr</div>
+      <div class="chip" data-v="50-75">$50–$75/hr</div>
+      <div class="chip" data-v="75-100">$75–$100/hr</div>
+      <div class="chip" data-v="100-150">$100–$150/hr</div>
+      <div class="chip" data-v="150+">$150+/hr</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-packages">
+    <div class="q-num">Question 8</div>
+    <div class="q-text">Are you open to selling session packages (e.g. 10-session bundles) for predictable recurring income?</div>
+    <div class="chip-group" data-q="packages">
+      <div class="chip" data-v="per-session">Per-session only</div>
+      <div class="chip" data-v="open">Open to packages</div>
+      <div class="chip" data-v="prefer">Strongly prefer packages</div>
+    </div>
+  </div>
+
+  <div class="section-label">Target students</div>
+
+  <div class="q-card" id="qc-intl">
+    <div class="q-num">Question 9</div>
+    <div class="q-text">Are you comfortable working with international students across different time zones?</div>
+    <div class="chip-group" data-q="intl">
+      <div class="chip" data-v="yes-global">Yes — happy to work with anyone globally</div>
+      <div class="chip" data-v="yes-nearby">Yes, but prefer students within a few time zones</div>
+      <div class="chip" data-v="us-canada">Prefer US/Canada students only</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-student-type">
+    <div class="q-num">Question 10 — select all that apply</div>
+    <div class="q-text">Which student types are you most drawn to?</div>
+    <div class="chip-group" data-q="student-type" data-multi="1">
+      <div class="chip" data-v="high-achiever">High-achievers aiming for top universities</div>
+      <div class="chip" data-v="struggling">Students who struggle and need patient support</div>
+      <div class="chip" data-v="exam-focus">Exam-focused (SAT, IB, AP, A-Level)</div>
+      <div class="chip" data-v="adult-career">Adults learning for career advancement</div>
+      <div class="chip" data-v="esl">Non-native English speakers</div>
+    </div>
+  </div>
+
+  <div class="section-label">Setup & experience</div>
+
+  <div class="q-card" id="qc-setup">
+    <div class="q-num">Question 11</div>
+    <div class="q-text">How would you describe your current online tutoring setup?</div>
+    <div class="chip-group" data-q="setup">
+      <div class="chip" data-v="basic">Basic — laptop and Zoom, no whiteboard</div>
+      <div class="chip" data-v="decent">Decent — tablet or drawing pad</div>
+      <div class="chip" data-v="pro">Pro — dedicated space and digital whiteboard</div>
+      <div class="chip" data-v="needs-help">I need help setting this up</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-presence">
+    <div class="q-num">Question 12</div>
+    <div class="q-text">Do you have an online presence today?</div>
+    <div class="chip-group" data-q="presence">
+      <div class="chip" data-v="none">None at all</div>
+      <div class="chip" data-v="linkedin">LinkedIn only</div>
+      <div class="chip" data-v="some">Some social media or partial profile</div>
+      <div class="chip" data-v="solid">Solid presence with reviews or testimonials</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-experience">
+    <div class="q-num">Question 13</div>
+    <div class="q-text">How many years of tutoring or teaching experience do you have?</div>
+    <div class="chip-group" data-q="experience">
+      <div class="chip" data-v="0-1">Less than 1 year</div>
+      <div class="chip" data-v="1-3">1–3 years</div>
+      <div class="chip" data-v="3-7">3–7 years</div>
+      <div class="chip" data-v="7+">7+ years</div>
+    </div>
+  </div>
+
+  <div class="section-label">Your priorities</div>
+
+  <div class="q-card" id="qc-priority">
+    <div class="q-num">Question 14 — pick up to 2</div>
+    <div class="q-text">What matters most to you right now?</div>
+    <div class="chip-group" data-q="priority" data-multi="1" data-max="2">
+      <div class="chip" data-v="max-income">Maximizing income as quickly as possible</div>
+      <div class="chip" data-v="work-life">Work-life balance and schedule control</div>
+      <div class="chip" data-v="niche-brand">Building a niche brand and reputation</div>
+      <div class="chip" data-v="stable-clients">Stable recurring clients</div>
+      <div class="chip" data-v="global-reach">Reaching international premium markets</div>
+      <div class="chip" data-v="agency">Building toward a tutoring agency</div>
+    </div>
+  </div>
+
+  <!-- ══ PART 2 DIVIDER ══ -->
+  <div class="part-divider">
+    <div class="part-divider-line"></div>
+    <div class="part-divider-badge">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Part 2 — Your profile &amp; background
+    </div>
+    <div class="part-divider-line"></div>
+  </div>
+
+  <!-- ══ PART 2 ══ -->
+  <div class="part-header">
+    <h2>Part 2 — Your profile &amp; background</h2>
+    <p>This is what turns your strategy into a real launchpad. Your answers here will be used to write your tutor bio, craft your positioning statement, and build your CharleyAcademic.com profile — ready to copy onto any platform.</p>
+  </div>
+
+  <div class="section-label">Education & credentials</div>
+
+  <div class="q-card" id="qc-degree">
+    <div class="q-num">Question 15</div>
+    <div class="q-text">What is your highest level of education?</div>
+    <div class="chip-group" data-q="degree">
+      <div class="chip" data-v="some-college">Some college</div>
+      <div class="chip" data-v="bachelors">Bachelor's degree</div>
+      <div class="chip" data-v="masters">Master's degree</div>
+      <div class="chip" data-v="phd">PhD or Doctorate</div>
+      <div class="chip" data-v="professional">Professional degree (MD, JD, etc.)</div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Question 16</div>
+    <div class="q-text">What did you study, and where? (List all relevant degrees)</div>
+    <div class="two-col" style="margin-bottom:10px">
+      <div>
+        <div class="field-label">Field of study / major</div>
+        <input type="text" id="field-of-study" placeholder="e.g. Chemistry, Mathematics, English Literature">
+      </div>
+      <div>
+        <div class="field-label">University / college</div>
+        <input type="text" id="university" placeholder="e.g. Rutgers University, NYU">
+      </div>
+    </div>
+    <div class="field-label">Any additional degrees, certifications, or relevant coursework?</div>
+    <input type="text" id="extra-creds" placeholder="e.g. Master's in Education from Columbia, minor in Physics, SAT prep certified">
+  </div>
+
+  <div class="q-card" id="qc-languages">
+    <div class="q-num">Question 17 — select all that apply</div>
+    <div class="q-text">What languages do you speak (beyond English)?</div>
+    <div class="chip-group" data-q="languages" data-multi="1">
+      <div class="chip" data-v="spanish">Spanish</div>
+      <div class="chip" data-v="french">French</div>
+      <div class="chip" data-v="arabic">Arabic</div>
+      <div class="chip" data-v="mandarin">Mandarin</div>
+      <div class="chip" data-v="portuguese">Portuguese</div>
+      <div class="chip" data-v="hindi">Hindi</div>
+      <div class="chip" data-v="korean">Korean</div>
+      <div class="chip" data-v="other">Other</div>
+      <div class="chip" data-v="english-only">English only</div>
+    </div>
+  </div>
+
+  <div class="section-label">Your teaching story</div>
+
+  <div class="q-card">
+    <div class="q-num">Question 18</div>
+    <div class="q-text">Describe your best tutoring success — a student you're proud of helping. What happened, and what did you do?</div>
+    <textarea id="success-story" placeholder="e.g. I worked with a 10th grader who was failing Chemistry — within 6 weeks she went from a D to a B+. We focused on visualizing molecular structures and I built custom practice problems that matched her learning style..."></textarea>
+    <div class="q-hint">Even informal examples count. This becomes the centerpiece of your profile bio.</div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Question 19</div>
+    <div class="q-text">How would your past students or their parents describe you in 3 words?</div>
+    <input type="text" id="three-words" placeholder="e.g. patient, thorough, enthusiastic — or encouraging, rigorous, funny">
+  </div>
+
+  <div class="q-card" id="qc-teaching-style">
+    <div class="q-num">Question 20 — select all that apply</div>
+    <div class="q-text">How would you describe your teaching style?</div>
+    <div class="chip-group" data-q="teaching-style" data-multi="1">
+      <div class="chip" data-v="socratic">Socratic — I ask questions to guide students to answers</div>
+      <div class="chip" data-v="structured">Structured — clear plans, notes, and homework</div>
+      <div class="chip" data-v="conceptual">Conceptual — I focus on deep understanding over memorization</div>
+      <div class="chip" data-v="exam-drill">Exam-focused — lots of practice problems and timed drills</div>
+      <div class="chip" data-v="adaptive">Adaptive — I tailor every session to the student's mood and pace</div>
+      <div class="chip" data-v="encouraging">Encouragement-first — I build confidence before content</div>
+    </div>
+  </div>
+
+  <div class="section-label">Business & payments</div>
+
+  <div class="q-card" id="qc-payment">
+    <div class="q-num">Question 21 — select all that apply</div>
+    <div class="q-text">What payment methods do you currently accept or are set up for?</div>
+    <div class="chip-group" data-q="payment" data-multi="1">
+      <div class="chip" data-v="venmo">Venmo</div>
+      <div class="chip" data-v="paypal">PayPal</div>
+      <div class="chip" data-v="zelle">Zelle</div>
+      <div class="chip" data-v="stripe">Stripe</div>
+      <div class="chip" data-v="cash">Cash / check</div>
+      <div class="chip" data-v="none-yet">Not set up yet</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-agency-vision">
+    <div class="q-num">Question 22</div>
+    <div class="q-text">How serious are you about eventually building a small tutoring agency under the Charley Academic brand?</div>
+    <div class="chip-group" data-q="agency-vision">
+      <div class="chip" data-v="just-me">Just want to tutor solo — no agency plans</div>
+      <div class="chip" data-v="maybe-later">Maybe later once I'm established</div>
+      <div class="chip" data-v="yes-planned">Yes — that's the goal from the start</div>
+      <div class="chip" data-v="yes-urgent">Yes and I want to move toward it quickly</div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Question 23 — optional</div>
+    <div class="q-text">Anything else? Constraints, special experience, or things that make you unique as a tutor.</div>
+    <textarea id="notes" placeholder="e.g. I tutored varsity athletes who needed to stay eligible, I'm great with anxious students, I have a home office with a dedicated whiteboard wall, I can't do sessions before 9am..."></textarea>
+  </div>
+
+  <!-- ══ SUBMIT ══ -->
+  <div class="submit-card">
+    <div class="submit-card-top">
+      <h3>Your launch kit is one click away</h3>
+      <p>Submit your answers and you'll get a complete prompt to paste into Claude — which will instantly generate everything below.</p>
+    </div>
+
+    <div class="deliverables">
+      <div class="deliverable">
+        <div class="d-icon">✍️</div>
+        <div class="d-title">Tutor bio</div>
+        <div class="d-sub">Platform-ready, in your voice</div>
+      </div>
+      <div class="deliverable">
+        <div class="d-icon">🎯</div>
+        <div class="d-title">Positioning statement</div>
+        <div class="d-sub">Your niche, sharply defined</div>
+      </div>
+      <div class="deliverable">
+        <div class="d-icon">💰</div>
+        <div class="d-title">Rate card</div>
+        <div class="d-sub">What to charge and why</div>
+      </div>
+      <div class="deliverable">
+        <div class="d-icon">🏆</div>
+        <div class="d-title">Top 3 platforms</div>
+        <div class="d-sub">Ranked and ready to join</div>
+      </div>
+      <div class="deliverable">
+        <div class="d-icon">📅</div>
+        <div class="d-title">30-day action plan</div>
+        <div class="d-sub">Week-by-week, no guessing</div>
+      </div>
+      <div class="deliverable">
+        <div class="d-icon">🚀</div>
+        <div class="d-title">Agency roadmap</div>
+        <div class="d-sub">Phase 2 blueprint for scaling</div>
+      </div>
+    </div>
+
+    <div class="submit-btn-row">
+      <button class="submit-btn" onclick="doSubmit()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Generate my complete launch kit
+      </button>
+      <div class="warn-msg" id="warn-msg">
+        ⚠️ Please answer at least 15 questions before submitting.
+      </div>
+    </div>
+
+    <div class="result-box" id="result-box">
+      <div class="result-label">Your personalized prompt — copy this entire text</div>
+      <textarea id="result-text" readonly></textarea>
+      <br>
+      <button class="copy-btn" id="copy-btn" onclick="copyResult()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy to clipboard
+      </button>
+    </div>
+
+    <div class="next-steps" id="next-steps">
+      <p><strong>You're done — here's what to do next:</strong></p>
+      <ol>
+        <li>Click "Copy to clipboard" above</li>
+        <li>Go to <strong>claude.ai</strong> and create a free account if you don't have one</li>
+        <li>Start a new chat and paste the text</li>
+        <li>Claude will generate your complete Charley Academic launch kit</li>
+      </ol>
+      <p style="margin-top:10px">The whole thing takes about 60 seconds. You'll have a polished bio, a rate card, platform recommendations, and a 30-day plan ready to act on today.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const ans = {};
+  const TOTAL = 22;
+
+  const labels = {
+    hours:'Weekly hours available', slots:'Available time slots', modality:'In-person preference',
+    subjects:'Strongest subjects', levels:'Preferred student levels', income:'Monthly income goal',
+    rate:'Target hourly rate', packages:'Session packaging', intl:'International openness',
+    'student-type':'Preferred student types', setup:'Online setup', presence:'Online presence',
+    experience:'Years of experience', priority:'Top priorities', degree:'Highest education level',
+    languages:'Languages spoken', 'teaching-style':'Teaching style', payment:'Payment methods accepted',
+    'agency-vision':'Agency ambition'
+  };
+
+  document.querySelectorAll('.chip-group').forEach(g => {
+    g.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      const q = g.dataset.q;
+      const v = chip.dataset.v;
+      const multi = g.dataset.multi === '1';
+      const max = g.dataset.max ? parseInt(g.dataset.max) : 99;
+      if (multi) {
+        const sel = g.querySelectorAll('.chip.on');
+        if (!chip.classList.contains('on') && sel.length >= max) return;
+        chip.classList.toggle('on');
+        ans[q] = Array.from(g.querySelectorAll('.chip.on')).map(c => c.dataset.v);
+        if (!ans[q].length) delete ans[q];
+      } else {
+        g.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+        chip.classList.add('on');
+        ans[q] = v;
+      }
+      const card = document.getElementById('qc-' + q);
+      if (card) {
+        const hasAns = ans[q] && (Array.isArray(ans[q]) ? ans[q].length > 0 : true);
+        card.classList.toggle('answered', !!hasAns);
+      }
+      updateProg();
+      updateTabs();
+    });
+  });
+
+  function updateProg() {
+    const chipAns = Object.keys(ans).length;
+    const textAns = ['field-of-study','university','success-story','three-words'].filter(id => {
+      const el = document.getElementById(id);
+      return el && el.value.trim().length > 2;
+    }).length;
+    const filled = chipAns + textAns;
+    const pct = Math.min(100, Math.round((filled / TOTAL) * 100));
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-label').textContent = filled + ' of ' + TOTAL + ' answered';
+    document.getElementById('prog-pct').textContent = pct + '%';
+  }
+
+  function updateTabs() {
+    const p1keys = ['hours','slots','modality','subjects','levels','income','rate','packages','intl','student-type','setup','presence','experience','priority'];
+    const p1done = p1keys.filter(k => ans[k] && (Array.isArray(ans[k]) ? ans[k].length > 0 : true)).length;
+    if (p1done >= 10) {
+      document.getElementById('tab1').classList.add('done');
+      document.getElementById('tab2').classList.add('active');
+    }
+  }
+
+  ['field-of-study','university','success-story','three-words','extra-creds'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateProg);
+  });
+
+  function doSubmit() {
+    const chipAns = Object.keys(ans).length;
+    if (chipAns < 15) {
+      document.getElementById('warn-msg').style.display = 'flex';
+      return;
+    }
+    document.getElementById('warn-msg').style.display = 'none';
+
+    const parts = [];
+
+    parts.push('CONTEXT: My name is Charley. I am an independent tutor based in New Jersey. I teach Chemistry, Math, and English. I do not have a teaching certificate. My brand is Charley Academic (CharleyAcademic.com).');
+
+    Object.entries(ans).forEach(([k, v]) => {
+      const val = Array.isArray(v) ? v.join(', ') : v;
+      parts.push((labels[k] || k) + ': ' + val);
+    });
+
+    const fieldMap = {
+      'field-of-study': 'Field of study',
+      'university': 'University attended',
+      'extra-creds': 'Additional credentials',
+      'success-story': 'Best tutoring success story',
+      'three-words': 'How students describe me',
+      'notes': 'Additional notes'
+    };
+
+    Object.entries(fieldMap).forEach(([id, label]) => {
+      const el = document.getElementById(id);
+      if (el && el.value.trim()) parts.push(label + ': ' + el.value.trim());
+    });
+
+    parts.push('DELIVERABLES REQUESTED: Please generate the following complete Charley Academic launch kit: (1) A polished 150-word tutor bio written in first person, platform-ready for Wyzant, Superprof, and similar sites. (2) A sharp one-sentence positioning statement for CharleyAcademic.com. (3) A rate card recommendation with specific hourly rates for different subjects and student levels, plus a package pricing suggestion. (4) The top 3 tutoring platforms ranked and explained for my specific profile, with exact steps to register and what to write in my profile on each. (5) A week-by-week 30-day action plan with specific tasks for each week. (6) A Phase 2 agency roadmap — what to build toward over the next 6–18 months to scale Charley Academic from solo tutor to boutique agency, including when to bring on other tutors, how to structure a simple website, and which international markets to target first.');
+
+    const prompt = parts.join('\n\n');
+    document.getElementById('result-text').value = prompt;
+    document.getElementById('result-box').style.display = 'block';
+    document.getElementById('next-steps').style.display = 'block';
+    document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function copyResult() {
+    const txt = document.getElementById('result-text').value;
+    navigator.clipboard.writeText(txt).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy to clipboard';
+      }, 2500);
+    }).catch(() => {
+      document.getElementById('result-text').select();
+      document.execCommand('copy');
+    });
+  }
+</script>
+</body>
+</html>
