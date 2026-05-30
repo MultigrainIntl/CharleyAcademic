@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session — Charley Academic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F6F4EF;--surface:#FFFFFF;--border:#DDD9D0;--text:#1C1A16;--muted:#6B6760;--hint:#A8A49E;--green:#2A5C3F;--green-light:#EAF0EB;--green-text:#1A3D28;--gold:#8B6914;--radius:10px;--radius-lg:14px;}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:10;background:rgba(246,244,239,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:980px;margin:0 auto;padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--green)}
+.nav-logo span{color:var(--hint);font-weight:400}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--green);color:#fff!important;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:500}
+.nav-cta:hover{background:#1e4430}
+@media(max-width:640px){.nav-links a:not(.nav-cta){display:none}}
+.head{background:var(--green);color:#fff;padding:3rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.head::after{content:'CA';position:absolute;right:-30px;bottom:-50px;font-family:'Cormorant Garamond',serif;font-size:230px;font-weight:600;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none}
+.head .eyebrow{font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1rem}
+.head h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,44px);font-weight:500;margin-bottom:1rem}
+.head p{font-size:16px;color:rgba(255,255,255,0.78);max-width:480px;margin:0 auto;line-height:1.7}
+.booking-wrap{max-width:980px;margin:-2rem auto 0;padding:0 1.5rem 4rem;position:relative;z-index:5}
+.booking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;box-shadow:0 8px 30px rgba(42,92,63,0.08)}
+.calendly-inline-widget{min-width:320px;height:700px}
+.fallback{text-align:center;padding:2rem 1rem;font-size:14px;color:var(--muted)}
+.fallback a{color:var(--green);font-weight:500;text-decoration:underline}
+.helptext{max-width:560px;margin:2rem auto 0;text-align:center;font-size:14px;color:var(--muted);line-height:1.7}
+.footer{background:#16331F;color:rgba(255,255,255,0.6);padding:2.5rem 1.5rem;text-align:center}
+.footer .f-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:0.5rem}
+.footer .f-logo span{color:rgba(255,255,255,0.4);font-weight:400}
+.footer p{font-size:13px;margin-top:0.4rem}
+.footer a{color:rgba(255,255,255,0.8);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Charley<span>Academic</span></a>
+    <div class="nav-links">
+      <a href="index.html#subjects">Subjects</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#tutor">Tutor</a>
+      <a href="start.html" class="nav-cta">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="eyebrow">Book a session</div>
+  <h1>Pick a time that works for you</h1>
+  <p>Choose an open slot below and you're booked. You'll get a confirmation by email, and we'll see you then.</p>
+</header>
+
+<div class="booking-wrap">
+  <div class="booking-card">
+    <!-- CALENDLY EMBED (swap the data-url to Charley's link when ready) -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/george-multigrain/30min?hide_gdpr_banner=1&background_color=f6f4ef&primary_color=2a5c3f&text_color=1c1a16"></div>
+    <noscript>
+      <div class="fallback">Please <a href="https://calendly.com/george-multigrain/30min" target="_blank" rel="noopener">click here to book a session</a>.</div>
+    </noscript>
+  </div>
+  <p class="helptext">Prefer to tell us about your goals first? <a href="start.html" style="color:var(--green);font-weight:500;text-decoration:underline">Start with a quick form</a> and we'll be in touch.</p>
+</div>
+
+<footer class="footer">
+  <div class="f-logo">Charley<span>Academic</span></div>
+  <p>Expert tutoring in chemistry, math &amp; English · Online worldwide &amp; in person in New Jersey</p>
+  <p style="margin-top:1rem"><a href="index.html">Home</a> · <a href="pricing.html">Pricing</a> · <a href="start.html">Get started</a></p>
+</footer>
+
+<!-- Calendly widget script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+</body>
+</html>

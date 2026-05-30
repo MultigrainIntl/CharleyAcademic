@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — Charley Academic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F6F4EF;--surface:#FFFFFF;--border:#DDD9D0;--border-hover:#B8C4A8;--text:#1C1A16;--muted:#6B6760;--hint:#A8A49E;--green:#2A5C3F;--green-mid:#3D7A57;--green-light:#EAF0EB;--green-text:#1A3D28;--gold:#8B6914;--warn:#8B4513;--warn-bg:#FDF3EC;--radius:10px;--radius-lg:14px;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+a{color:inherit}
+.hero{background:var(--green);padding:3.5rem 2rem 0;position:relative;overflow:hidden}
+.hero::after{content:'CA';position:absolute;right:-20px;top:-30px;font-family:'Cormorant Garamond',serif;font-size:220px;font-weight:600;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none}
+.hero-inner{max-width:680px;margin:0 auto}
+.back-link{font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;display:inline-block;margin-bottom:1.5rem}
+.back-link:hover{color:#fff}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem}
+.hero-logo{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,44px);font-weight:500;color:#fff;line-height:1.1;margin-bottom:1rem}
+.hero-logo span{color:rgba(255,255,255,0.45);font-weight:400}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.75;max-width:500px;padding-bottom:2.5rem}
+.prog-bar-wrap{background:var(--green);padding:0 2rem 1.75rem}
+.prog-bar-inner{max-width:680px;margin:0 auto}
+.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:7px;padding-top:1rem}
+.prog-track{height:2px;background:rgba(255,255,255,0.15);border-radius:2px}
+.prog-fill{height:2px;background:rgba(255,255,255,0.7);border-radius:2px;width:0%;transition:width 0.35s ease}
+.main{max-width:680px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.intro-card{margin-bottom:2rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);border-left:3px solid var(--green)}
+.intro-card h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:6px}
+.intro-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.4rem;margin-bottom:10px;transition:border-color 0.15s}
+.q-card.answered{border-color:#B8D4BF}
+.q-num{font-size:11px;color:var(--hint);letter-spacing:0.04em;margin-bottom:5px}
+.q-text{font-size:15px;color:var(--text);line-height:1.55;margin-bottom:13px}
+.q-hint{font-size:12px;color:var(--hint);margin-top:9px;line-height:1.55}
+.chip-group{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;padding:6px 15px;border-radius:999px;border:1px solid var(--border);background:var(--bg);font-size:13px;font-family:'DM Sans',sans-serif;color:var(--muted);cursor:pointer;transition:all 0.1s;user-select:none}
+.chip:hover{border-color:var(--border-hover);color:var(--text)}
+.chip.on{background:var(--green-light);border-color:var(--green);color:var(--green-text);font-weight:500}
+input[type=text],input[type=email],textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:8px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color 0.15s;line-height:1.6}
+input:focus,textarea:focus{border-color:var(--green)}
+input::placeholder,textarea::placeholder{color:var(--hint)}
+textarea{min-height:80px;resize:vertical}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field-label{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.submit-card{margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.submit-card-top{background:var(--green-light);border-bottom:1px solid var(--border);padding:1.5rem;text-align:center}
+.submit-card-top h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--green-text);margin-bottom:6px}
+.submit-card-top p{font-size:13px;color:var(--muted);line-height:1.65;max-width:460px;margin:0 auto}
+.submit-btn-row{padding:1.5rem;text-align:center}
+.submit-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;border:none;padding:13px 36px;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:background 0.15s,transform 0.1s}
+.submit-btn:hover{background:#1e4430}
+.submit-btn:active{transform:scale(0.98)}
+.warn-msg{display:none;align-items:center;justify-content:center;gap:7px;font-size:13px;color:var(--warn);background:var(--warn-bg);border:1px solid #F5CBA0;border-radius:8px;padding:10px 16px;margin-top:1rem}
+.result-output{display:none;padding:1.5rem;border-top:1px solid var(--border)}
+.result-output.show{display:block}
+.result-output h2{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--green-text);margin-bottom:0.5rem}
+.result-output p{font-size:14px;line-height:1.7;color:var(--text);margin-bottom:0.75rem}
+@media(max-width:580px){.hero{padding:2.5rem 1.25rem 0}.main{padding:1.5rem 1rem 4rem}.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <a href="index.html" class="back-link">← Back to Charley Academic</a>
+    <div class="hero-eyebrow">Get started</div>
+    <div class="hero-logo">Charley<span>Academic</span></div>
+    <p class="hero-sub">Tell us a little about the student and what you're looking for. We'll review it and reach out to set up the right tutoring plan. It only takes a couple of minutes.</p>
+  </div>
+</div>
+
+<div class="prog-bar-wrap">
+  <div class="prog-bar-inner">
+    <div class="prog-meta"><span id="prog-label">Let's begin</span><span id="prog-pct">0%</span></div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="intro-card">
+    <h2>Let's find the right fit</h2>
+    <p>A few quick questions about the student's needs and goals. When you're done, your request goes straight to our team and we'll be in touch soon.</p>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Question 1</div>
+    <div class="q-text">Who should we contact?</div>
+    <div class="two-col" style="margin-bottom:10px">
+      <div><div class="field-label">Your name</div><input type="text" id="name" placeholder="Parent or student name"></div>
+      <div><div class="field-label">Email</div><input type="email" id="email" placeholder="you@example.com"></div>
+    </div>
+    <div class="field-label">Phone (optional)</div>
+    <input type="text" id="phone" placeholder="Best number to reach you">
+  </div>
+
+  <div class="q-card" id="qc-who">
+    <div class="q-num">Question 2</div>
+    <div class="q-text">Who is the tutoring for?</div>
+    <div class="chip-group" data-q="who">
+      <div class="chip" data-v="my-child">My child</div>
+      <div class="chip" data-v="myself">Myself</div>
+      <div class="chip" data-v="someone-else">Someone else</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-subject">
+    <div class="q-num">Question 3 — select all that apply</div>
+    <div class="q-text">Which subject(s) do you need help with?</div>
+    <div class="chip-group" data-q="subject" data-multi="1">
+      <div class="chip" data-v="chemistry">Chemistry</div>
+      <div class="chip" data-v="math">Math</div>
+      <div class="chip" data-v="english">English / Writing</div>
+      <div class="chip" data-v="physics">Physics</div>
+      <div class="chip" data-v="other-science">Other science</div>
+      <div class="chip" data-v="test-prep">Test prep (SAT/ACT/AP/IB)</div>
+      <div class="chip" data-v="admissions">College admissions / essays</div>
+      <div class="chip" data-v="other">Other</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-level">
+    <div class="q-num">Question 4</div>
+    <div class="q-text">What level is the student at?</div>
+    <div class="chip-group" data-q="level">
+      <div class="chip" data-v="middle">Middle school</div>
+      <div class="chip" data-v="high">High school</div>
+      <div class="chip" data-v="college">College / university</div>
+      <div class="chip" data-v="adult">Adult learner</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-goal">
+    <div class="q-num">Question 5</div>
+    <div class="q-text">What's the main goal?</div>
+    <div class="chip-group" data-q="goal">
+      <div class="chip" data-v="improve-grade">Improve a grade</div>
+      <div class="chip" data-v="exam">Prepare for an exam or test</div>
+      <div class="chip" data-v="keep-up">Keep up with current coursework</div>
+      <div class="chip" data-v="get-ahead">Get ahead / enrichment</div>
+      <div class="chip" data-v="confidence">Build confidence</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-urgency">
+    <div class="q-num">Question 6</div>
+    <div class="q-text">How soon would you like to start?</div>
+    <div class="chip-group" data-q="urgency">
+      <div class="chip" data-v="asap">As soon as possible</div>
+      <div class="chip" data-v="few-weeks">Within a few weeks</div>
+      <div class="chip" data-v="exploring">Just exploring for now</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qc-format">
+    <div class="q-num">Question 7</div>
+    <div class="q-text">Online or in person?</div>
+    <div class="chip-group" data-q="format">
+      <div class="chip" data-v="online">Online</div>
+      <div class="chip" data-v="in-person">In person (New Jersey)</div>
+      <div class="chip" data-v="either">Either is fine</div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Question 8 — optional</div>
+    <div class="q-text">Anything else we should know? (course name, exam date, availability, etc.)</div>
+    <textarea id="notes" placeholder="e.g. AP Chemistry, exam in May, free on weekday evenings..."></textarea>
+  </div>
+
+  <div class="submit-card">
+    <div class="submit-card-top">
+      <h3>Send your request</h3>
+      <p>Tap below and your request will open in a ready-to-send email. Just press send, and we'll be in touch soon.</p>
+    </div>
+    <div class="submit-btn-row">
+      <button class="submit-btn" id="gen-btn" onclick="doSubmit()">Send my request</button>
+      <div class="warn-msg" id="warn-msg">⚠️ Please add your name, email, and a subject before sending.</div>
+    </div>
+    <div class="result-output" id="result-output"></div>
+  </div>
+</div>
+
+<script>
+const RECIPIENTS = "chjibilian@gmail.com,george+CHJ@multigrain.com";
+const ans={};const TOTAL=7;
+const labels={who:'Tutoring is for',subject:'Subject(s)',level:'Student level',goal:'Main goal',urgency:'Timeline',format:'Online or in person'};
+
+document.querySelectorAll('.chip-group').forEach(g=>{
+  g.addEventListener('click',e=>{
+    const chip=e.target.closest('.chip');if(!chip)return;
+    const q=g.dataset.q,v=chip.dataset.v,multi=g.dataset.multi==='1';
+    if(multi){
+      chip.classList.toggle('on');
+      ans[q]=Array.from(g.querySelectorAll('.chip.on')).map(c=>c.dataset.v);
+      if(!ans[q].length)delete ans[q];
+    }else{
+      g.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+      chip.classList.add('on');ans[q]=v;
+    }
+    const card=document.getElementById('qc-'+q);
+    if(card){const h=ans[q]&&(Array.isArray(ans[q])?ans[q].length>0:true);card.classList.toggle('answered',!!h);}
+    updateProg();
+  });
+});
+function updateProg(){
+  const chipAns=Object.keys(ans).length;
+  const hasContact=document.getElementById('name').value.trim()&&document.getElementById('email').value.trim();
+  const filled=chipAns+(hasContact?1:0);
+  const pct=Math.min(100,Math.round((filled/(TOTAL+1))*100));
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-pct').textContent=pct+'%';
+  document.getElementById('prog-label').textContent=pct>=100?'All set':(pct>0?'Looking good':"Let's begin");
+}
+['name','email','phone','notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('input',updateProg);});
+
+function buildText(){
+  const parts=[];
+  parts.push("CHARLEY ACADEMIC — NEW STUDENT INQUIRY");
+  parts.push("");
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  if(name)parts.push("Name: "+name);
+  if(email)parts.push("Email: "+email);
+  if(phone)parts.push("Phone: "+phone);
+  parts.push("");
+  Object.entries(ans).forEach(([k,v])=>{const val=Array.isArray(v)?v.join(', '):v;parts.push((labels[k]||k)+': '+val);});
+  const notes=document.getElementById('notes').value.trim();
+  if(notes)parts.push("Notes: "+notes);
+  return parts.join("\n");
+}
+
+function doSubmit(){
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!name||!email||!ans.subject){document.getElementById('warn-msg').style.display='flex';return;}
+  document.getElementById('warn-msg').style.display='none';
+  const body=buildText();
+  const subject="New tutoring inquiry from "+name;
+  const mailto="mailto:"+RECIPIENTS+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  window.location.href=mailto;
+  const out=document.getElementById('result-output');
+  out.classList.add('show');
+  out.innerHTML='<h2>Almost done — check your email app</h2>'
+    +'<p>An email with your request should have just opened. <strong>Just press send</strong> and we\'ll be in touch soon.</p>'
+    +'<p>Want to grab a time now? You can book a session directly:</p>'
+    +'<p><a href="book.html" style="display:inline-block;background:var(--green);color:#fff;padding:11px 26px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none">Book a session →</a></p>'
+    +'<p style="margin-top:1rem">If no email opened, copy the text below and send it to chjibilian@gmail.com.</p>'
+    +'<textarea readonly style="width:100%;min-height:180px;margin-top:8px">'+body.replace(/</g,"&lt;")+'</textarea>';
+  out.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
